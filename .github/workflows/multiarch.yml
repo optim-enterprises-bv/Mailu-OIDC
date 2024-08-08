@@ -5,6 +5,7 @@ on:
       - master
       - oidc
   merge_group:
+  push:
 
 concurrency: ci-multiarch-${{ github.ref }}
 
