@@ -60,7 +60,7 @@ RUN if [ -e ${MACHINE} = armv7* ]; then \
       mkdir -p /root/.cargo/registry/index && \
       git clone --bare https://github.com/rust-lang/crates.io-index.git /root/.cargo/registry/index/github.com-1285ae84e5963aae; fi
 RUN pip install -r requirements-${MAILU_DEPS}.txt
-RUN curl -sL ${SNUFFLEUPAGUS_URL} | tar xz
+RUN curl --proto "=https" -sL ${SNUFFLEUPAGUS_URL} | tar xz
 RUN mv snuffleupagus-${SNUFFLEUPAGUS_VERSION} snuffleupagus
 WORKDIR /app/snuffleupagus
 RUN rm -rf src/tests/*php7*/ src/tests/*session*/ src/tests/broken_configuration/ src/tests/*cookie* src/tests/upload_validation/
