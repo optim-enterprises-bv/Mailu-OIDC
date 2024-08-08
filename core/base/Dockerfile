@@ -62,7 +62,7 @@ RUN if [ -e ${MACHINE} = armv7* ]; then \
 RUN pip install -r requirements-${MAILU_DEPS}.txt
 RUN curl -sL ${SNUFFLEUPAGUS_URL} | tar xz
 RUN mv snuffleupagus-${SNUFFLEUPAGUS_VERSION} snuffleupagus
-WORKDIR snuffleupagus
+WORKDIR /app/snuffleupagus
 RUN rm -rf src/tests/*php7*/ src/tests/*session*/ src/tests/broken_configuration/ src/tests/*cookie* src/tests/upload_validation/
 RUN apk add --virtual .build-deps php83-dev php83-cgi php83-simplexml php83-xml pcre-dev build-base php83-pear php83-openssl re2c
 RUN pecl83 install vld-beta
