@@ -10,8 +10,7 @@ COPY . /docs
 RUN set -euxo pipefail
 RUN MACHINE="$(uname -m)"
 RUN DEPS="gcc musl-dev graphviz"
-RUN [[ "${MACHINE}" != x86_64 ]] && \
-      DEPS="${DEPS} cargo"
+RUN if [ -e ${MACHINE} != x86_64 ]; then DEPS="${DEPS} cargo"; fi
 RUN apk add --no-cache --virtual .build-deps ${DEPS}
 RUN if [ -e ${MACHINE} = armv7* ]; then \
       mkdir -p /root/.cargo/registry/index && \
