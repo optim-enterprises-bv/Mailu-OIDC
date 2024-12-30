@@ -47,7 +47,7 @@ jobs:
           echo "DEPLOY=true" >> $GITHUB_ENV
           echo "RELEASE=false" >> $GITHUB_ENV
       - name: Derive PINNED_MAILU_VERSION and DEPLOY/RELEASE for normal release x.y
-        if: env.BRANCH != 'oidc' && env.BRANCH != 'testing' && env.BRANCH != 'staging' && env.BRANCH != 'master' && !(startsWith(env.BRANCH, 'test-')) && !(startsWith(env.BRANCH, 'oidc-'))
+        if: env.BRANCH != 'oidc' && env.BRANCH != 'testing' && env.BRANCH != 'staging' && env.BRANCH != 'master' && !(endsWith(env.BRANCH, '/merge')) && !(startsWith(env.BRANCH, 'test-')) && !(startsWith(env.BRANCH, 'oidc-'))
         shell: bash
         run: |
           version=$( git tag --sort=version:refname --list "${{ env.MAILU_VERSION }}.*" | tail -1  );root_version=${version%.*};patch_version=${version##*.};if [ "$patch_version" == "" ]; then pinned_version=${{ env.MAILU_VERSION }}.0; else pinned_version=$root_version.$(expr $patch_version + 1); fi;echo "PINNED_MAILU_VERSION=$pinned_version" >> $GITHUB_ENV
@@ -59,6 +59,16 @@ jobs:
         shell: bash
         run: |
           echo "PINNED_MAILU_VERSION=staging" >> $GITHUB_ENV
+          echo "DEPLOY=false" >> $GITHUB_ENV
+          echo "RELEASE=false" >> $GITHUB_ENV
+      - name: Derive PINNED_MAILU_VERSION and DEPLOY/RELEASE for pull requests
+        if: endsWith(env.BRANCH, '/merge')
+        shell: bash
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          echo "MAILU_VERSION=pr-${COMMIT_MESSAGE//[!0-9]/}" >> $GITHUB_ENV
+          echo "PINNED_MAILU_VERSION=pr-${COMMIT_MESSAGE//[!0-9]/}" >> $GITHUB_ENV
           echo "DEPLOY=false" >> $GITHUB_ENV
           echo "RELEASE=false" >> $GITHUB_ENV
       - name: Derive PINNED_MAILU_VERSION for master
