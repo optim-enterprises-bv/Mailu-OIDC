@@ -32,16 +32,16 @@ ENV ROUNDCUBE_URL=https://github.com/roundcube/roundcubemail/releases/download/1
 ENV CARDDAV_URL=https://github.com/mstilkerich/rcmcarddav/releases/download/v5.1.0/carddav-v5.1.0.tar.gz
 
 RUN set -euxo pipefail
-RUN cd /var/www
-RUN curl -sLo /dev/shm/roundcube.tgz ${ROUNDCUBE_URL}
-RUN curl -sLo /dev/shm/roundcube.tgz.asc ${ROUNDCUBE_URL}.asc
-RUN gpg --status-fd 1 --verify /dev/shm/roundcube.tgz.asc /dev/shm/roundcube.tgz
-RUN tar xzf /dev/shm/roundcube.tgz
+WORKDIR /var/www
+RUN curl -sLo /tmp/roundcube.tgz ${ROUNDCUBE_URL}
+RUN curl -sLo /tmp/roundcube.tgz.asc ${ROUNDCUBE_URL}.asc
+RUN gpg --status-fd 1 --verify /tmp/roundcube.tgz.asc /tmp/roundcube.tgz
+RUN tar xzf /tmp/roundcube.tgz
 RUN curl -sL ${CARDDAV_URL} | tar xz
 RUN mv roundcubemail-* roundcube
 RUN mkdir -p /var/www/roundcube/config
 RUN mv carddav roundcube/plugins/
-RUN cd roundcube
+WORKDIR /var/www/roundcube
 RUN rm -rf CHANGELOG.md SECURITY.md INSTALL LICENSE README.md UPGRADING composer.json-dist installer composer.*
 RUN ln -sf index.php /var/www/roundcube/public_html/sso.php
 RUN rm -rf plugins/{autologon,example_addressbook,http_authentication,krb_authentication,new_user_identity,password,redundant_attachments,squirrelmail_usercopy,userinfo,virtuser_file,virtuser_query}
@@ -57,12 +57,12 @@ COPY roundcube/config/config.inc.carddav.php /var/www/roundcube/plugins/carddav/
 ENV SNAPPYMAIL_URL=https://github.com/the-djmaze/snappymail/releases/download/v2.38.2/snappymail-2.38.2.tar.gz
 
 RUN set -euxo pipefail
-RUN mkdir  /var/www/snappymail
-RUN cd /var/www/snappymail
-RUN curl -sLo /dev/shm/snappymail.tgz  ${SNAPPYMAIL_URL}
-RUN curl -sLo /dev/shm/snappymail.tgz.asc  ${SNAPPYMAIL_URL}.asc
-RUN gpg --status-fd 1 --verify /dev/shm/snappymail.tgz.asc /dev/shm/snappymail.tgz
-RUN cat /dev/shm/snappymail.tgz | tar xz
+RUN mkdir /var/www/snappymail
+WORKDIR /var/www/snappymail
+RUN curl -sLo /tmp/snappymail.tgz  ${SNAPPYMAIL_URL}
+RUN curl -sLo /tmp/snappymail.tgz.asc  ${SNAPPYMAIL_URL}.asc
+RUN gpg --status-fd 1 --verify /tmp/snappymail.tgz.asc /tmp/snappymail.tgz
+RUN cat /tmp/snappymail.tgz | tar xz
 
 # SnappyMail login
 COPY snappymail/login/include.php /var/www/snappymail/
