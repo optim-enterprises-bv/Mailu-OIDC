@@ -21,14 +21,13 @@ RUN sphinx-build -W /docs /build/$VERSION
 RUN apk del .build-deps
 RUN rm -rf /root/.cargo
 
-
 # Build nginx deployment image including generated html
 FROM nginx:1.25.5-alpine
 
 ARG version=master
 ARG pinned_version=master
 ENV VERSION=$version
-ENV TZ Etc/UTC
+ENV TZ=Etc/UTC
 LABEL version=$VERSION
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
