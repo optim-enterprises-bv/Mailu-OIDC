@@ -1,59 +1,38 @@
-## Adding more flavors/steps
-(Everything will go under setup/ directory - using Kubernetes flavor as example)
+# sv
 
-Until this point, the app is working as it follows:
-- when accessing the setup page it will display the flavors selection step (`templates/steps/flavor.html`)
-- after you choose your desired flavor it will iterate over the files in the flavor directory and building the page
-  (`templates/steps/config.html is general for all flavors`)
-- when you complete all required fields and press "Setup Mailu" button it will redirect you to the setup page (`flavors/choosen-flavor/setup.html`)
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-To add a new flavor you need to create a directory under `templates/steps/` in which you are adding actual steps.
-Eg: Adding a WIP step we'll create `templates/steps/kubernetes/wip.html`
+## Creating a project
 
-*Note that wizard.html is iterating over files in this directory and building the page. Files are prefixed with a number for sorting purposes.*
+If you're seeing this, you've probably already done this step. Congrats!
 
-wip.html will start with
+```bash
+# create a new project in the current directory
+npx sv create
 
-```
-{% call macros.panel("info", "Step X - Work in progress") %}
+# create a new project in my-app
+npx sv create my-app
 ```
 
-and end with
-```
-{% endcall %}
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-You store variable from front-page using the name attribute inside tag.
-In the example below the string entered in the input field is stored in the variable `named var_test`
-```
-<input type="text" name="var_test">
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
 ```
 
-In order to use the variable further you use it like `{{ var_test }}`
+You can preview the production build with `npm run preview`.
 
-In the setup page (`flavors/kubernetes/setup.html`) you can add steps by importing macros
-
-```
-{% import "macros.html" as macros %}
-```
-
-and start and end every step with
-```
-{% call macros.panel("info", "Step X - Title") %}
--------------------
-{% endcall %}
-```
-
-### Generating a file
-Create the file template in `flavors/kubernetes/` (eg. file.txt) in which you save your variables
-```
-ROOT = {{ root }}
-MY_VAR = {{ var_test }}
-```
-
-When you submit to Setup Mailu the file will be generated. In order to get the file add the following command to setup.html
-
-```
-<p>curl {{ url_for('.file', uid=uid, filepath='file.txt', _external=True) }} > file.txt</p>
-```
-
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
