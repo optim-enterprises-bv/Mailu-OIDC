@@ -4,15 +4,34 @@
 
   import { ModeWatcher } from 'mode-watcher';
 
+  import {
+    AppHeader,
+    AppNavigation,
+    AppSidebar,
+    type NavItem
+  } from '$lib/components/composed/app-navigation';
+
+  import { SidebarInset } from '$lib/components/ui/sidebar';
+
   import '../app.css';
   import '@fontsource-variable/inter';
   import '@fontsource-variable/source-code-pro';
 
-  let { children } = $props();
+  let { children: pageContent } = $props();
 </script>
 
 <ModeWatcher />
 
 <ParaglideJS {i18n}>
-  {@render children()}
+  <AppNavigation>
+    {#snippet children(items: Record<string, NavItem[]>)}
+      <AppSidebar {items} />
+      <SidebarInset>
+        <AppHeader />
+        <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+          {@render pageContent?.()}
+        </div>
+      </SidebarInset>
+    {/snippet}
+  </AppNavigation>
 </ParaglideJS>

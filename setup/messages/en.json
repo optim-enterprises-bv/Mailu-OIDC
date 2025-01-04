@@ -1,3 +1,15 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "mailu_setup_utility_title": "Mailu Setup Utility",
+  "home": "Home",
+  "setup": "Setup",
+  "report_a_bug": "Report a Bug",
+  "source_code": "Source Code",
+  "display_preferences_title": "Display Preferences",
+  "display_preferences_description": "Dark Mode, Language",
+  "toggle_theme": "Toggle Theme",
+  "light_theme": "Light",
+  "dark_theme": "Dark",
+  "system_theme": "System",
+  "language": "Language"
 }
