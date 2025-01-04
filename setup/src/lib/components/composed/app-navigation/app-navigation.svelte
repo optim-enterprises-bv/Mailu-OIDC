@@ -23,9 +23,15 @@
 
   import { SidebarProvider } from '$lib/components/ui/sidebar';
 
-  import { Blocks, Bug, Code, House, Wrench } from 'lucide-svelte';
+  import { Blocks, Bug, Code, House, ShieldEllipsis, Wrench } from 'lucide-svelte';
 
-  import { home, report_a_bug, setup, source_code } from '$lib/paraglide/messages';
+  import {
+    openid_connect_title,
+    home,
+    report_a_bug,
+    setup,
+    source_code
+  } from '$lib/paraglide/messages';
 
   const pathname = $derived(i18n.route(page.url.pathname));
   const items = $derived({
@@ -40,7 +46,15 @@
         title: setup(),
         url: '/setup',
         icon: Wrench,
-        isActive: pathname.startsWith('/setup')
+        isActive: pathname.startsWith('/setup'),
+        items: [
+          {
+            title: openid_connect_title(),
+            url: '/setup/openid-connect',
+            icon: ShieldEllipsis,
+            isActive: pathname === '/setup/openid-connect'
+          }
+        ]
       }
     ],
     secondary: [
@@ -57,7 +71,7 @@
     ]
   });
 
-  let { children }: AppNavigationProps = $props();
+  const { children }: AppNavigationProps = $props();
 </script>
 
 <SidebarProvider>

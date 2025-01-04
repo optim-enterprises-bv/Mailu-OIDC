@@ -11,5 +11,7 @@
   "light_theme": "Hell",
   "dark_theme": "Dunkel",
   "system_theme": "System",
-  "language": "Sprache"
+  "language": "Sprache",
+  "openid_connect_title": "OpenID Connect",
+  "openid_connect_description": "Möchten Sie die OpenID Connect-Integration von Heviat verwenden?"
 }
