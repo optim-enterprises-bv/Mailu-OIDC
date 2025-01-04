@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { PersistedState } from 'runed';
+
   import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
   import { Label } from '$lib/components/ui/label';
 
@@ -12,7 +14,7 @@
     openid_connect_hint
   } from '$lib/paraglide/messages';
 
-  let dockerOrg = $state('ghcr.io/heviat');
+  const dockerOrg = new PersistedState('dockerOrg', 'ghcr.io/heviat');
 </script>
 
 <header class="space-y-2">
@@ -38,7 +40,7 @@
   >{textAfter}
 {/snippet}
 
-<RadioGroup bind:value={dockerOrg} class="max-w-2xl">
+<RadioGroup bind:value={dockerOrg.current} class="max-w-2xl">
   <Label for="openid_connect_yes" class="flex items-center space-x-4 rounded-md border p-4">
     <RadioGroupItem value="ghcr.io/heviat" id="openid_connect_yes" />
     <div class="w-full">
@@ -66,5 +68,5 @@
 </RadioGroup>
 
 <p class="text-muted-foreground">
-  {@render inlineCode(openid_connect_hint({ dockerOrg: dockerOrg }))}
+  {@render inlineCode(openid_connect_hint({ dockerOrg: dockerOrg.current }))}
 </p>
