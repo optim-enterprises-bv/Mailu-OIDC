@@ -1,38 +1,49 @@
-# sv
+# Mailu Setup Utility
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Setting up a new [Mailu](https://github.com/mailu/mailu) instance has never been easier!
 
-## Creating a project
+![Screenshot of the Mailu Setup Utility "Installation directory" step](./docs/screenshots/setup-root.png)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Set up a Mailu instance according to your needs. This tool generates configuration files for Mailu without
+you having to refer to the documentation all the time.
 
-```bash
-# create a new project in the current directory
-npx sv create
+While the [original Mailu Setup Utility](https://setup.mailu.io/) already offers a lot of configuration
+options, this tool offers a much more simplified setup experience, and it also allows you to setup
+[Mailu-OIDC](https://github.com/heviat/Mailu-OIDC) easily.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Usage
+
+Visit the ~~_Mailu Setup Utility by Heviat_~~ and follow the instructions.
+
+> [!WARNING]
+> This tool is still in development and was not deployed yet. To use it, you
+> can follow the instructions below.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+If you want to contribute to this SvelteKit app, follow these steps:
 
-```bash
-npm run dev
+1. Clone the repository to your local machine (you only need the `setup` directory of the `oidc-setup` branch):
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```bash
+   git clone -b oidc-setup --single-branch -n --depth=1 --filter=tree:0 https://github.com/heviat/Mailu-OIDC.git
+   cd Mailu-OIDC
+   git sparse-checkout set --no-cone /setup
+   git checkout
+   ```
 
-## Building
+2. Change to the `setup` directory and install dependencies:
 
-To create a production version of your app:
+   ```bash
+   cd setup
+   pnpm install
+   ```
 
-```bash
-npm run build
-```
+3. Start a development server:
 
-You can preview the production build with `npm run preview`.
+   ```bash
+   pnpm dev
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+   # or start the server and open the app in a new browser tab
+   pnpm dev -- --open
+   ```
