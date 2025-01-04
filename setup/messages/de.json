@@ -13,5 +13,10 @@
   "system_theme": "System",
   "language": "Sprache",
   "openid_connect_title": "OpenID Connect",
-  "openid_connect_description": "Möchten Sie die OpenID Connect-Integration von Heviat verwenden?"
+  "openid_connect_description": "Möchten Sie die OpenID Connect-Integration von Heviat verwenden?",
+  "openid_connect_o_yes_title": "Ja, OIDC aktivieren",
+  "openid_connect_o_yes_description": "<GithubRepository/> mit OIDC-Unterstützung einrichten.",
+  "openid_connect_o_no_title": "Nein",
+  "openid_connect_o_no_description": "<GithubRepository/> einrichten.",
+  "openid_connect_hint": "Die Docker-Images werden von {dockerOrg} heruntergeladen."
 }
