@@ -7,6 +7,10 @@ const config: Config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   safelist: ['dark'],
   theme: {
+    fontFamily: {
+      sans: ['Inter Variable', ...fontFamily.sans],
+      mono: ['Source Code Pro Variable', ...fontFamily.mono]
+    },
     container: {
       center: true,
       padding: '2rem',
