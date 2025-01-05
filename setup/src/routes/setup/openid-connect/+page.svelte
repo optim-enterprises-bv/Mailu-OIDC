@@ -7,6 +7,8 @@
   import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
   import { Label } from '$lib/components/ui/label';
 
+  import { githubRepository, inlineCode } from '$lib/components/formatters.svelte';
+
   import { Info } from 'lucide-svelte';
 
   import {
@@ -44,24 +46,6 @@
   </Dialog.Content>
 </Dialog.Root>
 
-{#snippet githubRepository(text: string, options: { href: string; title: string })}
-  {@const [textBefore, textAfter] = text.split('<GithubRepository/>')}
-  {textBefore}<a
-    href={options.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block rounded-sm text-blue-700 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-black dark:text-blue-400"
-    >{options.title}</a
-  >{textAfter}
-{/snippet}
-
-{#snippet inlineCode(text: string)}
-  {@const [textBefore, code, textAfter] = text.split('`')}
-  {textBefore}<code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm"
-    >{code}</code
-  >{textAfter}
-{/snippet}
-
 <RadioGroup bind:value={dockerOrg.current} class="max-w-2xl">
   <Label for="openid_connect_yes" class="flex items-center space-x-4 rounded-md border p-4">
     <RadioGroupItem value="ghcr.io/heviat" id="openid_connect_yes" />
@@ -81,7 +65,7 @@
       <strong class="text-base font-semibold">{openid_connect_o_no_title()}</strong>
       <p class="mt-1 block text-balance text-sm text-muted-foreground">
         {@render githubRepository(openid_connect_o_no_description(), {
-          title: 'mailu/Mailu',
+          title: 'Mailu/Mailu',
           href: 'https://github.com/mailu/Mailu'
         })}
       </p>
