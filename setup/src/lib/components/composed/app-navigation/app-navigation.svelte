@@ -23,14 +23,15 @@
 
   import { SidebarProvider } from '$lib/components/ui/sidebar';
 
-  import { Blocks, Bug, Code, House, ShieldEllipsis, Wrench } from 'lucide-svelte';
+  import { Blocks, Bug, Code, FolderInput, House, ShieldEllipsis, Wrench } from 'lucide-svelte';
 
   import {
     openid_connect_title,
     home,
     report_a_bug,
     setup,
-    source_code
+    source_code,
+    installation_directory_title
   } from '$lib/paraglide/messages';
 
   const pathname = $derived(i18n.route(page.url.pathname));
@@ -53,6 +54,12 @@
             url: '/setup/openid-connect',
             icon: ShieldEllipsis,
             isActive: pathname === '/setup/openid-connect'
+          },
+          {
+            title: installation_directory_title(),
+            url: '/setup/installation-directory',
+            icon: FolderInput,
+            isActive: pathname === '/setup/installation-directory'
           }
         ]
       }

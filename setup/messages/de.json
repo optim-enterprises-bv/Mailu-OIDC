@@ -13,6 +13,7 @@
   "system_theme": "System",
   "language": "Sprache",
   "more_info": "Mehr Infos",
+  "warning": "Warnung",
   "openid_connect_title": "OpenID Connect",
   "openid_connect_description": "Möchten Sie die OpenID Connect-Integration von Heviat verwenden?",
   "openid_connect_details": "Wenn Sie OIDC aktivieren, können Sie Ihren bestehenden Login-Provider verwenden, um Benutzer in Mailu zu authentifizieren, ohne neue Konten oder Passwörter erstellen zu müssen. Dies ermöglicht Ihnen auch die Verwendung der Multi-Faktor-Authentifizierung und anderer Sicherheitsfunktionen, die von Ihrem Identitätsanbieter bereitgestellt werden und sonst in Mailu nicht verfügbar sind.",
@@ -20,5 +21,13 @@
   "openid_connect_o_yes_description": "<GithubRepository/> mit OIDC-Unterstützung einrichten.",
   "openid_connect_o_no_title": "Nein",
   "openid_connect_o_no_description": "<GithubRepository/> einrichten.",
-  "openid_connect_hint": "Die Docker-Images werden von {dockerOrg} heruntergeladen."
+  "openid_connect_hint": "Die Docker-Images werden von {dockerOrg} heruntergeladen.",
+  "installation_directory_title": "Installationsverzeichnis",
+  "installation_directory_description": "Wo soll Mailu installiert werden?",
+  "installation_directory_o_default_title": "Standardverzeichnis",
+  "installation_directory_o_default_description": "Mailu in `{installDir}` installieren.",
+  "installation_directory_o_custom_title": "Benutzerdefiniertes Verzeichnis",
+  "installation_directory_o_custom_description": "Mailu in einem benutzerdefinierten Verzeichnis installieren.",
+  "installation_directory_hint_install_dir": "Mailu wird in `{installDir}` installiert.",
+  "installation_directory_hint_more_than_two_subdirs_warning": "Es gibt derzeit ein [ungelöstes Problem]({openIssueLink}), wenn ein Pfad mit mehr als zwei Unterverzeichnissen verwendet wird."
 }

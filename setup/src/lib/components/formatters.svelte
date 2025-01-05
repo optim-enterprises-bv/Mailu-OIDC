@@ -1,6 +1,5 @@
 <script lang="ts" module>
-  export { githubRepository };
-  export { inlineCode };
+  export { githubRepository, inlineCode, link };
 </script>
 
 {#snippet githubRepository(text: string, options: { href: string; title: string })}
@@ -19,4 +18,24 @@
   {textBefore}<code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm"
     >{code}</code
   >{textAfter}
+{/snippet}
+
+{#snippet link(text: string)}
+  {@const linkRegex = /\[([^\]]+)\]\(([^\)]+)\)/g}
+  {@const links = [...text.matchAll(linkRegex)]}
+  {@const textParts = text.replace(linkRegex, '<Link/>').split('<Link/>')}
+
+  {#each textParts as textPart, i}
+    {textPart}
+    {#if i < textParts.length - 1}
+      {@const [_, title, href] = links[i]}
+      <a
+        {href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block rounded-sm text-blue-700 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-black dark:text-blue-400"
+        data-no-translate>{title}</a
+      >
+    {/if}
+  {/each}
 {/snippet}
