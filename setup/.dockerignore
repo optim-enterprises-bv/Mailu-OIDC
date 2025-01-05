@@ -1,0 +1,44 @@
+# Node.js
+node_modules
+
+# Editor and tooling config
+.vscode
+.npmrc
+.prettierignore
+.prettierrc
+components.json
+eslint.config.js
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Output
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Paraglide
+src/lib/paraglide
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Documentation
+docs
+README.md
