@@ -38,5 +38,22 @@
   "postmaster_o_domain_description": "Die primäre Domain, die Sie für Ihre E-Mails verwenden möchten.",
   "postmaster_o_postmaster_title": "Postmaster",
   "postmaster_o_postmaster_description": "Die E-Mail-Adresse des Postmaster/Administrator.",
-  "postmaster_hint": "Ein `{postmaster}@{domain}` Konto wird erstellt."
+  "postmaster_hint": "Ein `{postmaster}@{domain}` Konto wird erstellt.",
+  "rate_limiting_title": "Ratenbegrenzung",
+  "rate_limiting_description": "Welche Einstellungen zur Ratenbegrenzung möchten Sie verwenden?",
+  "rate_limiting_details": "Die Ratenbegrenzung ist eine Sicherheitsfunktion, die dazu beiträgt, Ihren Server vor Missbrauch zu schützen. Sie begrenzt die Anzahl der Anfragen, die ein Benutzer innerhalb einer bestimmten Zeitspanne stellen kann. Dies hilft, Brute-Force-Angriffe und andere Arten von Missbrauch zu verhindern.",
+  "rate_limiting_o_defaults_title": "Standardeinstellungen",
+  "rate_limiting_o_defaults_description": "Standardwerte der Ratenbegrenzung verwenden.",
+  "rate_limiting_o_custom_title": "Benutzerdefinierte Einstellungen",
+  "rate_limiting_o_custom_description": "Benutzerdefinierte Einstellungen der Ratenbegrenzung verwenden.",
+  "rate_limiting_o_custom_authIP": "Anmeldeversuche pro IP (pro Stunde)",
+  "rate_limiting_o_custom_authUser": "Anmeldeversuche pro Benutzer (pro Stunde)",
+  "rate_limiting_o_custom_message": "Gesendete Nachrichten pro Benutzer (pro Tag)",
+  "rate_limiting_hint_values": "Es werden die folgenden Einstellungen zur Ratenbegrenzung verwendet:",
+  "rate_limiting_hint_authIP_title": "Anmeldeversuche pro IP:",
+  "rate_limiting_hint_authIP_description": "{authIP} pro Stunde",
+  "rate_limiting_hint_authUser_title": "Anmeldeversuche pro Benutzer:",
+  "rate_limiting_hint_authUser_description": "{authUser} pro Stunde",
+  "rate_limiting_hint_message_title": "Gesendete Nachrichten pro Benutzer:",
+  "rate_limiting_hint_message_description": "{message} pro Tag"
 }

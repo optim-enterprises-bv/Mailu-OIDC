@@ -28,6 +28,7 @@
     Bug,
     Code,
     FolderInput,
+    Gauge,
     House,
     ShieldEllipsis,
     UserRoundCheck,
@@ -41,7 +42,8 @@
     setup,
     source_code,
     installation_directory_title,
-    postmaster_title
+    postmaster_title,
+    rate_limiting_title
   } from '$lib/paraglide/messages';
 
   const pathname = $derived(i18n.route(page.url.pathname));
@@ -76,6 +78,12 @@
             url: '/setup/postmaster',
             icon: UserRoundCheck,
             isActive: pathname === '/setup/postmaster'
+          },
+          {
+            title: rate_limiting_title(),
+            url: '/setup/rate-limiting',
+            icon: Gauge,
+            isActive: pathname === '/setup/rate-limiting'
           }
         ]
       }

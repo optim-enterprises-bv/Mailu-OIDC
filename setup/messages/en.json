@@ -38,5 +38,22 @@
   "postmaster_o_domain_description": "The primary domain you want to use for your emails.",
   "postmaster_o_postmaster_title": "Postmaster",
   "postmaster_o_postmaster_description": "The email address of the postmaster/administrator.",
-  "postmaster_hint": "A{n} `{postmaster}@{domain}` account will be created."
+  "postmaster_hint": "A{n} `{postmaster}@{domain}` account will be created.",
+  "rate_limiting_title": "Rate Limiting",
+  "rate_limiting_description": "Which rate limiting settings do you want to use?",
+  "rate_limiting_details": "Rate limiting is a security feature that helps protect your server from abuse. It limits the number of requests a user can make in a certain amount of time. This helps prevent brute-force attacks and other types of abuse.",
+  "rate_limiting_o_defaults_title": "Default settings",
+  "rate_limiting_o_defaults_description": "Use the default rate limiting settings.",
+  "rate_limiting_o_custom_title": "Custom settings",
+  "rate_limiting_o_custom_description": "Use custom rate limiting settings.",
+  "rate_limiting_o_custom_authIP": "Login attempts per IP (per hour)",
+  "rate_limiting_o_custom_authUser": "Login attempts per user (per hour)",
+  "rate_limiting_o_custom_message": "Messages sent per user (per day)",
+  "rate_limiting_hint_values": "The following rate limiting settings will be used:",
+  "rate_limiting_hint_authIP_title": "Login attempts per IP:",
+  "rate_limiting_hint_authIP_description": "{authIP} per hour",
+  "rate_limiting_hint_authUser_title": "Login attempts per user:",
+  "rate_limiting_hint_authUser_description": "{authUser} per hour",
+  "rate_limiting_hint_message_title": "Messages sent per user:",
+  "rate_limiting_hint_message_description": "{message} per day"
 }
