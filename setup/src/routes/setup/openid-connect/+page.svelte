@@ -1,26 +1,48 @@
 <script lang="ts">
   import { PersistedState } from 'runed';
+  import { cn } from '$lib/utils';
 
+  import { buttonVariants } from '$lib/components/ui/button';
+  import * as Dialog from '$lib/components/ui/dialog';
   import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
   import { Label } from '$lib/components/ui/label';
+
+  import { Info } from 'lucide-svelte';
 
   import {
     openid_connect_title,
     openid_connect_description,
+    openid_connect_details,
     openid_connect_o_yes_title,
     openid_connect_o_yes_description,
     openid_connect_o_no_title,
     openid_connect_o_no_description,
-    openid_connect_hint
+    openid_connect_hint,
+    more_info
   } from '$lib/paraglide/messages';
 
   const dockerOrg = new PersistedState('dockerOrg', 'ghcr.io/heviat');
 </script>
 
-<header class="space-y-2">
-  <h2 class="text-2xl font-bold">{openid_connect_title()}</h2>
-  <p class="text-muted-foreground">{openid_connect_description()}</p>
-</header>
+<Dialog.Root>
+  <header class="flex max-w-2xl items-center justify-between gap-2">
+    <div class="space-y-2">
+      <h2 class="text-2xl font-bold">{openid_connect_title()}</h2>
+      <p class="text-muted-foreground">{openid_connect_description()}</p>
+    </div>
+    <Dialog.Trigger class={cn(buttonVariants({ variant: 'outline' }), 'rounded-full')}>
+      <Info />
+      {more_info()}
+    </Dialog.Trigger>
+  </header>
+
+  <Dialog.Content>
+    <Dialog.Header>
+      <Dialog.Title class="text-xl">{more_info()}</Dialog.Title>
+      <Dialog.Description class="text-base">{openid_connect_details()}</Dialog.Description>
+    </Dialog.Header>
+  </Dialog.Content>
+</Dialog.Root>
 
 {#snippet githubRepository(text: string, options: { href: string; title: string })}
   {@const [textBefore, textAfter] = text.split('<GithubRepository/>')}
