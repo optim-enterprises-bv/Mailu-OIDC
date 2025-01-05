@@ -17,7 +17,7 @@
   import '@fontsource-variable/inter';
   import '@fontsource-variable/source-code-pro';
 
-  let { children: pageContent } = $props();
+  const { children: pageContent } = $props();
 </script>
 
 <ModeWatcher />
@@ -27,7 +27,7 @@
     {#snippet children(items: Record<string, NavItem[]>)}
       <AppSidebar {items} />
       <SidebarInset>
-        <AppHeader />
+        <AppHeader {items} />
         <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
           {@render pageContent?.()}
         </div>
