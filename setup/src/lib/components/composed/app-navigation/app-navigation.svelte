@@ -37,6 +37,7 @@
 
   import {
     openid_connect_title,
+    optional_services_title,
     home,
     report_a_bug,
     setup,
@@ -84,6 +85,12 @@
             url: '/setup/rate-limiting',
             icon: Gauge,
             isActive: pathname === '/setup/rate-limiting'
+          },
+          {
+            title: optional_services_title(),
+            url: '/setup/optional-services',
+            icon: Blocks,
+            isActive: pathname === '/setup/optional-services'
           }
         ]
       }
