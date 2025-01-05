@@ -23,7 +23,16 @@
 
   import { SidebarProvider } from '$lib/components/ui/sidebar';
 
-  import { Blocks, Bug, Code, FolderInput, House, ShieldEllipsis, Wrench } from 'lucide-svelte';
+  import {
+    Blocks,
+    Bug,
+    Code,
+    FolderInput,
+    House,
+    ShieldEllipsis,
+    UserRoundCheck,
+    Wrench
+  } from 'lucide-svelte';
 
   import {
     openid_connect_title,
@@ -31,7 +40,8 @@
     report_a_bug,
     setup,
     source_code,
-    installation_directory_title
+    installation_directory_title,
+    postmaster_title
   } from '$lib/paraglide/messages';
 
   const pathname = $derived(i18n.route(page.url.pathname));
@@ -60,6 +70,12 @@
             url: '/setup/installation-directory',
             icon: FolderInput,
             isActive: pathname === '/setup/installation-directory'
+          },
+          {
+            title: postmaster_title(),
+            url: '/setup/postmaster',
+            icon: UserRoundCheck,
+            isActive: pathname === '/setup/postmaster'
           }
         ]
       }

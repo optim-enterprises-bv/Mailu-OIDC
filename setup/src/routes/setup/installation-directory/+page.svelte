@@ -1,13 +1,12 @@
 <script lang="ts">
   import { PersistedState } from 'runed';
 
+  import { Badge } from '$lib/components/ui/badge';
   import { Input } from '$lib/components/ui/input';
   import { Label } from '$lib/components/ui/label';
   import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
 
   import { inlineCode, link } from '$lib/components/formatters.svelte';
-
-  import { Badge } from '$lib/components/ui/badge';
 
   import {
     installation_directory_description,

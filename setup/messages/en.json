@@ -29,5 +29,14 @@
   "installation_directory_o_custom_title": "Custom location",
   "installation_directory_o_custom_description": "Install Mailu in a custom directory.",
   "installation_directory_hint_install_dir": "Mailu will be installed in `{installDir}`.",
-  "installation_directory_hint_more_than_two_subdirs_warning": "There is currently an [open issue]({openIssueLink}) with paths that use more than two subdirectories."
+  "installation_directory_hint_more_than_two_subdirs_warning": "There is currently an [open issue]({openIssueLink}) with paths that use more than two subdirectories.",
+  "postmaster_title": "Postmaster",
+  "postmaster_description": "Define the main email domain and postmaster account.",
+  "postmaster_details_domain": "The main email domain is the primary domain you want to use for your emails. You can add additional domains later. The main domain will be used as the display name of the server.",
+  "postmaster_details_postmaster": "The postmaster account is the first account that will be created. It is used as the admin account and is the default account for system notifications.",
+  "postmaster_o_domain_title": "Main Email Domain",
+  "postmaster_o_domain_description": "The primary domain you want to use for your emails.",
+  "postmaster_o_postmaster_title": "Postmaster",
+  "postmaster_o_postmaster_description": "The email address of the postmaster/administrator.",
+  "postmaster_hint": "A{n} `{postmaster}@{domain}` account will be created."
 }

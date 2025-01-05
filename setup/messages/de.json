@@ -29,5 +29,14 @@
   "installation_directory_o_custom_title": "Benutzerdefiniertes Verzeichnis",
   "installation_directory_o_custom_description": "Mailu in einem benutzerdefinierten Verzeichnis installieren.",
   "installation_directory_hint_install_dir": "Mailu wird in `{installDir}` installiert.",
-  "installation_directory_hint_more_than_two_subdirs_warning": "Es gibt derzeit ein [ungelöstes Problem]({openIssueLink}), wenn ein Pfad mit mehr als zwei Unterverzeichnissen verwendet wird."
+  "installation_directory_hint_more_than_two_subdirs_warning": "Es gibt derzeit ein [ungelöstes Problem]({openIssueLink}), wenn ein Pfad mit mehr als zwei Unterverzeichnissen verwendet wird.",
+  "postmaster_title": "Postmaster",
+  "postmaster_description": "Definieren Sie die Haupt-E-Mail-Domain und das Postmaster-Konto.",
+  "postmaster_details_domain": "Die Haupt-E-Mail-Domain ist die primäre Domain, die Sie für Ihre E-Mails verwenden möchten. Sie können später weitere Domains hinzufügen. Die Hauptdomain wird als Anzeigename des Servers verwendet.",
+  "postmaster_details_postmaster": "Das Postmaster-Konto ist das erste Konto, das erstellt wird. Es wird als Admin-Konto und ist der Standardkonto für Systembenachrichtigungen.",
+  "postmaster_o_domain_title": "Haupt-E-Mail-Domain",
+  "postmaster_o_domain_description": "Die primäre Domain, die Sie für Ihre E-Mails verwenden möchten.",
+  "postmaster_o_postmaster_title": "Postmaster",
+  "postmaster_o_postmaster_description": "Die E-Mail-Adresse des Postmaster/Administrator.",
+  "postmaster_hint": "Ein `{postmaster}@{domain}` Konto wird erstellt."
 }
