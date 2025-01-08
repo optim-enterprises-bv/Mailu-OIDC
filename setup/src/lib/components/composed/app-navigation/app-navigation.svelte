@@ -6,7 +6,7 @@
   export type NavItem = {
     title: string;
     url: string;
-    icon?: typeof Blocks;
+    icon?: typeof Icon.Blocks;
     isActive?: boolean;
     hidden?: boolean;
     items?: NavItem[];
@@ -21,75 +21,54 @@
   import { i18n } from '$lib/i18n';
   import { page } from '$app/state';
 
-  import { SidebarProvider } from '$lib/components/ui/sidebar';
+  import * as Sidebar from '$lib/components/ui/sidebar';
 
-  import {
-    Blocks,
-    Bug,
-    Code,
-    FolderInput,
-    Gauge,
-    House,
-    ShieldEllipsis,
-    UserRoundCheck,
-    Wrench
-  } from 'lucide-svelte';
-
-  import {
-    openid_connect_title,
-    optional_services_title,
-    home,
-    report_a_bug,
-    setup,
-    source_code,
-    installation_directory_title,
-    postmaster_title,
-    rate_limiting_title
-  } from '$lib/paraglide/messages';
+  import * as Icon from 'lucide-svelte';
+  import * as m from '$lib/paraglide/messages';
 
   const pathname = $derived(i18n.route(page.url.pathname));
   const items = $derived({
     main: [
       {
-        title: home(),
+        title: m.home(),
         url: '/',
-        icon: House,
+        icon: Icon.House,
         isActive: pathname === '/'
       },
       {
-        title: setup(),
+        title: m.setup(),
         url: '/setup',
-        icon: Wrench,
+        icon: Icon.Wrench,
         isActive: pathname.startsWith('/setup'),
         items: [
           {
-            title: openid_connect_title(),
+            title: m.openid_connect_title(),
             url: '/setup/openid-connect',
-            icon: ShieldEllipsis,
+            icon: Icon.ShieldEllipsis,
             isActive: pathname === '/setup/openid-connect'
           },
           {
-            title: installation_directory_title(),
+            title: m.installation_directory_title(),
             url: '/setup/installation-directory',
-            icon: FolderInput,
+            icon: Icon.FolderInput,
             isActive: pathname === '/setup/installation-directory'
           },
           {
-            title: postmaster_title(),
+            title: m.postmaster_title(),
             url: '/setup/postmaster',
-            icon: UserRoundCheck,
+            icon: Icon.UserRoundCheck,
             isActive: pathname === '/setup/postmaster'
           },
           {
-            title: rate_limiting_title(),
+            title: m.rate_limiting_title(),
             url: '/setup/rate-limiting',
-            icon: Gauge,
+            icon: Icon.Gauge,
             isActive: pathname === '/setup/rate-limiting'
           },
           {
-            title: optional_services_title(),
+            title: m.optional_services_title(),
             url: '/setup/optional-services',
-            icon: Blocks,
+            icon: Icon.Blocks,
             isActive: pathname === '/setup/optional-services'
           }
         ]
@@ -97,14 +76,14 @@
     ],
     secondary: [
       {
-        title: report_a_bug(),
+        title: m.report_a_bug(),
         url: 'https://github.com/heviat/Mailu-OIDC/issues',
-        icon: Bug
+        icon: Icon.Bug
       },
       {
-        title: source_code(),
+        title: m.source_code(),
         url: 'https://github.com/heviat/Mailu-OIDC/tree/oidc-setup/setup#readme',
-        icon: Code
+        icon: Icon.Code
       }
     ]
   });
@@ -112,6 +91,6 @@
   const { children }: AppNavigationProps = $props();
 </script>
 
-<SidebarProvider>
+<Sidebar.Provider>
   {@render children?.(items)}
-</SidebarProvider>
+</Sidebar.Provider>

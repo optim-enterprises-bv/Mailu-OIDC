@@ -8,17 +8,7 @@
 
   import { inlineCode, link } from '$lib/components/formatters.svelte';
 
-  import {
-    installation_directory_description,
-    installation_directory_hint_install_dir,
-    installation_directory_hint_more_than_two_subdirs_warning,
-    installation_directory_o_custom_description,
-    installation_directory_o_custom_title,
-    installation_directory_o_default_description,
-    installation_directory_o_default_title,
-    installation_directory_title,
-    warning
-  } from '$lib/paraglide/messages';
+  import * as m from '$lib/paraglide/messages';
 
   const rootDefault = '/mailu';
   const root = new PersistedState('root', rootDefault);
@@ -27,8 +17,8 @@
 
 <header class="flex max-w-2xl items-center justify-between gap-2">
   <div class="space-y-2">
-    <h2 class="text-2xl font-bold">{installation_directory_title()}</h2>
-    <p class="text-muted-foreground">{installation_directory_description()}</p>
+    <h2 class="text-2xl font-bold">{m.installation_directory_title()}</h2>
+    <p class="text-muted-foreground">{m.installation_directory_description()}</p>
   </div>
 </header>
 
@@ -39,10 +29,10 @@
   >
     <RadioGroupItem value="/mailu" id="installation_directory_default" />
     <div class="w-full">
-      <strong class="text-base font-semibold">{installation_directory_o_default_title()}</strong>
+      <strong class="text-base font-semibold">{m.installation_directory_o_default_title()}</strong>
       <p class="mt-1 block text-balance text-sm text-muted-foreground">
         {@render inlineCode(
-          installation_directory_o_default_description({ installDir: rootDefault })
+          m.installation_directory_o_default_description({ installDir: rootDefault })
         )}
       </p>
     </div>
@@ -53,15 +43,15 @@
   >
     <RadioGroupItem value={rootCustom.current} id="installation_directory_custom" />
     <div class="w-full">
-      <strong class="text-base font-semibold">{installation_directory_o_custom_title()}</strong>
+      <strong class="text-base font-semibold">{m.installation_directory_o_custom_title()}</strong>
       <p class="mt-1 block text-balance text-sm text-muted-foreground">
-        {installation_directory_o_custom_description()}
+        {m.installation_directory_o_custom_description()}
       </p>
       {#if root.current === rootCustom.current}
         <section class="py-4">
           <div class="flex w-full max-w-sm flex-col gap-1.5">
             <Label for="installation_directory_custom_input">
-              {installation_directory_o_custom_title()}
+              {m.installation_directory_o_custom_title()}
             </Label>
             <Input
               id="installation_directory_custom_input"
@@ -80,13 +70,13 @@
 
 <section class="space-y-2 text-muted-foreground">
   <p>
-    {@render inlineCode(installation_directory_hint_install_dir({ installDir: root.current }))}
+    {@render inlineCode(m.installation_directory_hint_install_dir({ installDir: root.current }))}
   </p>
   {#if root.current && root.current.replace(/[^/]/g, '').length > 2}
     <p>
-      <Badge class="bg-amber-500 hover:bg-amber-500 ">{warning()}</Badge>
+      <Badge class="bg-amber-500 hover:bg-amber-500 ">{m.warning()}</Badge>
       {@render link(
-        installation_directory_hint_more_than_two_subdirs_warning({
+m.installation_directory_hint_more_than_two_subdirs_warning({
           openIssueLink: 'https://github.com/Mailu/Mailu/issues/3164'
         })
       )}

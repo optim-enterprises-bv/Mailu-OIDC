@@ -16,9 +16,8 @@
   import NavSecondary from './nav-secondary.svelte';
   import NavUserMenu from './nav-user-menu.svelte';
 
-  import { mailu_setup_utility_title } from '$lib/paraglide/messages';
-
-  import { WandSparkles } from 'lucide-svelte';
+  import * as Icon from 'lucide-svelte';
+  import * as m from '$lib/paraglide/messages';
 
   let {
     ref = $bindable(null),
@@ -38,10 +37,10 @@
               <div
                 class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
               >
-                <WandSparkles class="size-4" />
+                <Icon.WandSparkles class="size-4" />
               </div>
               <div class="grid flex-1 text-left text-sm leading-tight">
-                <span class="truncate font-semibold">{mailu_setup_utility_title()}</span>
+                <span class="truncate font-semibold">{m.mailu_setup_utility_title()}</span>
                 <span class="truncate text-xs">by Heviat</span>
               </div>
             </a>

@@ -4,14 +4,9 @@
 
   import { ModeWatcher } from 'mode-watcher';
 
-  import {
-    AppHeader,
-    AppNavigation,
-    AppSidebar,
-    type NavItem
-  } from '$lib/components/composed/app-navigation';
+  import * as Sidebar from '$lib/components/ui/sidebar';
 
-  import { SidebarInset } from '$lib/components/ui/sidebar';
+  import * as App from '$lib/components/composed/app-navigation';
 
   import '../app.css';
   import '@fontsource-variable/inter';
@@ -23,15 +18,15 @@
 <ModeWatcher />
 
 <ParaglideJS {i18n}>
-  <AppNavigation>
-    {#snippet children(items: Record<string, NavItem[]>)}
-      <AppSidebar {items} />
-      <SidebarInset>
-        <AppHeader {items} />
+  <App.Navigation>
+    {#snippet children(items: Record<string, App.NavItem[]>)}
+      <App.Sidebar {items} />
+      <Sidebar.Inset>
+        <App.Header {items} />
         <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
           {@render pageContent?.()}
         </div>
-      </SidebarInset>
+      </Sidebar.Inset>
     {/snippet}
-  </AppNavigation>
+  </App.Navigation>
 </ParaglideJS>

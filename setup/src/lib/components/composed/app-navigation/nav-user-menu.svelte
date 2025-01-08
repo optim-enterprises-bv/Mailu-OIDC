@@ -6,12 +6,8 @@
   import ThemeSelector from './selector-theme.svelte';
   import LanguageSelector from './selector-language.svelte';
 
-  import { ChevronsUpDown, Settings2 } from 'lucide-svelte';
-
-  import {
-    display_preferences_title,
-    display_preferences_description
-  } from '$lib/paraglide/messages';
+  import * as Icon from 'lucide-svelte';
+  import * as m from '$lib/paraglide/messages';
 
   const sidebar = useSidebar();
 </script>
@@ -20,11 +16,11 @@
   <div
     class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
   >
-    <Settings2 class="size-4" />
+    <Icon.Settings2 class="size-4" />
   </div>
   <div class="grid flex-1 text-left text-sm leading-tight">
-    <span class="truncate font-semibold">{display_preferences_title()}</span>
-    <span class="truncate text-xs">{display_preferences_description()}</span>
+    <span class="truncate font-semibold">{m.display_preferences_title()}</span>
+    <span class="truncate text-xs">{m.display_preferences_description()}</span>
   </div>
 {/snippet}
 
@@ -39,7 +35,7 @@
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >
             {@render profile()}
-            <ChevronsUpDown class="ml-auto size-4" />
+            <Icon.ChevronsUpDown class="ml-auto size-4" />
           </Sidebar.MenuButton>
         {/snippet}
       </DropdownMenu.Trigger>
