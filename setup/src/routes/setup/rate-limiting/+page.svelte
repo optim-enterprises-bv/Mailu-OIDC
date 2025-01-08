@@ -70,6 +70,7 @@
               id="rate_limiting_custom_authIP"
               type="number"
               bind:value={rateLimitCustom.current!.authIP}
+              autocomplete="off"
             />
           </div>
           <div class="flex w-full max-w-sm flex-col gap-1.5">
@@ -80,6 +81,7 @@
               id="rate_limiting_custom_authUser"
               type="number"
               bind:value={rateLimitCustom.current!.authUser}
+              autocomplete="off"
             />
           </div>
           <div class="flex w-full max-w-sm flex-col gap-1.5">
@@ -90,6 +92,7 @@
               id="rate_limiting_custom_message"
               type="number"
               bind:value={rateLimitCustom.current!.message}
+              autocomplete="off"
             />
           </div>
         </section>

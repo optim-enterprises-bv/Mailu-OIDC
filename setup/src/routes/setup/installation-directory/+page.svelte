@@ -60,6 +60,7 @@
                 rootCustom.current = event.currentTarget.value;
                 root.current = rootCustom.current;
               }}
+              autocomplete="off"
             />
           </div>
         </section>
@@ -76,7 +77,7 @@
     <p>
       <Badge class="bg-amber-500 hover:bg-amber-500 ">{m.warning()}</Badge>
       {@render link(
-m.installation_directory_hint_more_than_two_subdirs_warning({
+        m.installation_directory_hint_more_than_two_subdirs_warning({
           openIssueLink: 'https://github.com/Mailu/Mailu/issues/3164'
         })
       )}

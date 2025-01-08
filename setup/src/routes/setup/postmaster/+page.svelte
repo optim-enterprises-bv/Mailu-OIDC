@@ -59,7 +59,7 @@
           <Label for="postmaster_domain">
             {m.postmaster_o_domain_title()}
           </Label>
-          <Input id="postmaster_domain" bind:value={domain.current} />
+          <Input id="postmaster_domain" bind:value={domain.current} autocomplete="off" />
         </div>
       </section>
     </div>
@@ -75,7 +75,7 @@
           <Label for="postmaster_domain">
             {m.postmaster_o_postmaster_title()}
           </Label>
-          <Input id="postmaster_domain" bind:value={postmaster.current} />
+          <Input id="postmaster_domain" bind:value={postmaster.current} autocomplete="off" />
         </div>
       </section>
     </div>
