@@ -15,6 +15,13 @@
   "more_info": "Mehr Infos",
   "warning": "Warnung",
   "caution": "Achtung",
+  "actions": "Aktionen",
+  "add": "Hinzufügen",
+  "edit": "Bearbeiten",
+  "save": "Speichern",
+  "remove": "Entfernen",
+  "move_up": "Nach oben",
+  "move_down": "Nach unten",
   "openid_connect_title": "OpenID Connect",
   "openid_connect_description": "Möchten Sie die OpenID Connect-Integration von Heviat verwenden?",
   "openid_connect_details": "Wenn Sie OIDC aktivieren, können Sie Ihren bestehenden Login-Provider verwenden, um Benutzer in Mailu zu authentifizieren, ohne neue Konten oder Passwörter erstellen zu müssen. Dies ermöglicht Ihnen auch die Verwendung der Multi-Faktor-Authentifizierung und anderer Sicherheitsfunktionen, die von Ihrem Identitätsanbieter bereitgestellt werden und sonst in Mailu nicht verfügbar sind.",
@@ -80,5 +87,13 @@
   "optional_services_hint_antivirus_and_tika": "Wenn Sie sowohl das Antivirenprogramm als auch die Volltextsuche aktivieren, werden erhebliche Ressourcen (RAM, CPU und Speicher) benötigt.",
   "optional_services_hint_antivirus": "Stellen Sie sicher, dass ClamAV mindestens 1 GB Arbeitsspeicher zur Verfügung hat, damit es seine Signaturdatenbank laden kann.",
   "optional_services_hint_tika": "Die Aktivierung der Volltextsuche erfordert erhebliche Ressourcen (RAM, CPU und Speicher).",
-  "optional_services_hint_none": "Es werden keine optionale Dienste aktiviert."
+  "optional_services_hint_none": "Es werden keine optionale Dienste aktiviert.",
+  "hostnames_title": "Öffentliche Hostnames",
+  "hostnames_description": "Welche Hostnamen sollen vom Server verwendet werden?",
+  "hostnames_details_description": "Hostnamen sind die öffentlichen Adressen, unter denen Ihr Server erreicht werden kann. Sie können mehrere Hostnamen verwenden, um Benutzern den Zugriff auf Ihren Server von verschiedenen Domains aus zu ermöglichen.",
+  "hostnames_details_guidelines": "Jede E-Mail-Domain, die auf diesen Server verweist, muss einen der Hostnamen in ihrem `MX`-Eintrag haben. Die Hostnamen müssen durch Kommata getrennt sein. Wenn Sie Probleme beim Zugriff auf Ihre Administrationsoberfläche haben, vergewissern Sie sich, dass Sie über den ersten Hostnamen in dieser Liste zugreifen. Es könnte hilfreich sein, Ihre Haupt-E-Mail-Domain (`{domain}`) zu verwenden.",
+  "hostnames_details_dns_records": "Stellen Sie sicher, dass der erste Hostname in der Liste auf die IP-Adresse Ihres Servers führt (`A`-Eintrag) und dass der Reverse-DNS-Eintrag für die IP-Adresse Ihres Servers (`PTR`-Eintrag) auf diesen ersten Hostnamen führt.",
+  "hostnames_o_hostnames_title": "Hostnames",
+  "hostnames_o_hostnames_description": "Geben Sie die Hostnamen ein, die Sie verwenden möchten (durch Komma getrennt).",
+  "hostnames_hint": "Folgende Hostnamen werden verwendet: `{hostnames}`"
 }

@@ -70,6 +70,12 @@
             url: '/setup/optional-services',
             icon: Icon.Blocks,
             isActive: pathname === '/setup/optional-services'
+          },
+          {
+            title: m.hostnames_title(),
+            url: '/setup/hostnames',
+            icon: Icon.Tag,
+            isActive: pathname === '/setup/hostnames'
           }
         ]
       }
