@@ -1,5 +1,6 @@
-import { fontFamily } from 'tailwindcss/defaultTheme';
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
 
 const config: Config = {
@@ -37,6 +38,9 @@ const config: Config = {
           DEFAULT: 'hsl(var(--destructive) / <alpha-value>)',
           foreground: 'hsl(var(--destructive-foreground) / <alpha-value>)'
         },
+        caution: colors.red[500],
+        warning: colors.amber[500],
+        info: colors.sky[500],
         muted: {
           DEFAULT: 'hsl(var(--muted) / <alpha-value>)',
           foreground: 'hsl(var(--muted-foreground) / <alpha-value>)'
