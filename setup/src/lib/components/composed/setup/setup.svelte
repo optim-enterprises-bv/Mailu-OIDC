@@ -31,7 +31,6 @@
   import * as Icon from 'lucide-svelte';
   import * as m from '$lib/paraglide/messages';
   import { SvelteSet } from 'svelte/reactivity';
-  import Item from './item.svelte';
 
   let {
     type = 'none',

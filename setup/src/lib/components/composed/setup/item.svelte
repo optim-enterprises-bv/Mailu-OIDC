@@ -92,7 +92,7 @@
   {@render stringOrSnippet(children, 'section', 'space-y-4')}
 {/snippet}
 
-<article class="space-y-4 rounded-md border" class:p-4={type === 'none'}>
+<article class="space-y-4 rounded-md border" class:p-4={effectiveType === 'none'}>
   {#if effectiveType === 'radio' || effectiveType === 'checkbox'}
     <Label class="flex items-center justify-between gap-3 p-4">
       {#if effectiveType === 'radio' && typeof value === 'string'}
