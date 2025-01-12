@@ -72,12 +72,12 @@ export class LocalStorage<T> {
       this.current = newValue;
     };
 
-    if (value) {
+    if (value !== null) {
       if (typeof value === 'object') return recursiveProxy(value, set);
       return value;
     }
 
-    if (this.#fallback) {
+    if (this.#fallback !== undefined) {
       if (isObject(this.#fallback)) return recursiveProxy(this.#fallback, set) as T;
       return this.#fallback;
     }
