@@ -94,7 +94,7 @@
 
 <article class="space-y-4 rounded-md border" class:p-4={type === 'none'}>
   {#if effectiveType === 'radio' || effectiveType === 'checkbox'}
-    <Label class="flex items-center justify-between gap-2 p-4">
+    <Label class="flex items-center justify-between gap-3 p-4">
       {#if effectiveType === 'radio' && typeof value === 'string'}
         <RadioGroupItem {value} />
       {/if}
