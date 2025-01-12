@@ -60,6 +60,12 @@
             isActive: pathname === '/setup/postmaster'
           },
           {
+            title: m.tls_flavor_title(),
+            url: '/setup/tls',
+            icon: Icon.Lock,
+            isActive: pathname === '/setup/tls'
+          },
+          {
             title: m.rate_limiting_title(),
             url: '/setup/rate-limiting',
             icon: Icon.Gauge,

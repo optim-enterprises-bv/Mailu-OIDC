@@ -4,7 +4,7 @@
   type AlertProps = {
     title?: string;
     variant: Alert.AlertVariant;
-    children?: Snippet;
+    children?: string | Snippet;
   };
 </script>
 
@@ -44,6 +44,10 @@
   <AlertIcon class="size-4" />
   <Alert.Title>{title ?? fallbackTitle}</Alert.Title>
   <Alert.Description>
-    {@render children?.()}
+    {#if typeof children === 'string'}
+      {children}
+    {:else}
+      {@render children?.()}
+    {/if}
   </Alert.Description>
 </Alert.Root>

@@ -1,9 +1,14 @@
 <script lang="ts" module>
   import type { Snippet } from 'svelte';
 
-  export { githubRepository, inlineCode, link };
+  export { bold, githubRepository, inlineCode, link };
 
   const markdown = {
+    bold: {
+      regex: /\*\*(.+?)\*\*/g,
+      replaceText: '<Bold/>',
+      render: boldRenderer
+    },
     inlineCode: {
       regex: /`([^`]+)`/g,
       replaceText: '<InlineCode/>',
@@ -16,6 +21,11 @@
     }
   } as Record<string, { regex: RegExp; replaceText: string; render: Snippet<[RegExpExecArray]> }>;
 </script>
+
+{#snippet boldRenderer(match: RegExpExecArray | string[])}
+  {@const [_, text] = match}
+  <strong class="font-semibold">{text}</strong>
+{/snippet}
 
 {#snippet inlineCodeRenderer(match: RegExpExecArray | string[])}
   {@const [_, code] = match}
@@ -52,6 +62,10 @@
 {#snippet githubRepository(text: string, options: { href: string; title: string })}
   {@const [textBefore, textAfter] = text.split('<GithubRepository/>')}
   {textBefore}{@render linkRenderer(['', options.title, options.href])}{textAfter}
+{/snippet}
+
+{#snippet bold(text: string)}
+  {@render generic(text, markdown.bold)}
 {/snippet}
 
 {#snippet inlineCode(text: string)}
