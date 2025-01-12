@@ -72,6 +72,12 @@
             isActive: pathname === '/setup/rate-limiting'
           },
           {
+            title: m.enable_stats_title(),
+            url: '/setup/statistics',
+            icon: Icon.TrendingUp,
+            isActive: pathname === '/setup/statistics'
+          },
+          {
             title: m.optional_services_title(),
             url: '/setup/optional-services',
             icon: Icon.Blocks,
