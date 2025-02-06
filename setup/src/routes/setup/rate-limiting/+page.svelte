@@ -65,7 +65,7 @@
     <p>
       {m.rate_limiting_hint_values()}
     </p>
-    <dl class="grid w-max max-w-full grid-cols-[auto,1fr] gap-x-4 gap-y-1 ps-6 [&>dt]:font-medium">
+    <dl class="grid w-max max-w-full grid-cols-[auto_1fr] gap-x-4 gap-y-1 ps-6 [&>dt]:font-medium">
       <dt>{m.rate_limiting_hint_authIP_title()}</dt>
       <dd>
         {m.rate_limiting_hint_authIP_description({ authIP: rateLimitValues.authIP })}

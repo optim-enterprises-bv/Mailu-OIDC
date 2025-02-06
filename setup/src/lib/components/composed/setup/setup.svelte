@@ -105,7 +105,7 @@
               {@render stringOrSnippet(
                 moreInfo,
                 'dd',
-                '[&:not(:last-child)]:mb-4 text-muted-foreground'
+                'not-last:mb-4 text-muted-foreground'
               )}
             {/if}
           {/each}
