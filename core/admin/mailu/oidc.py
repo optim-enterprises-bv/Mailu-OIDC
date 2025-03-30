@@ -13,20 +13,17 @@ from oic.utils.settings import OicClientSettings
 from oic import rndstr
 from oic.exception import MessageException, NotForMe
 from oic.oauth2.message import (
-    ROPCAccessTokenRequest,
     AccessTokenResponse,
     ErrorResponse,
 )
 from oic.oic.message import (
     AuthorizationResponse,
     RegistrationResponse,
-    EndSessionRequest,
     BackChannelLogoutRequest,
     OpenIDSchema,
     UserInfoErrorResponse,
 )
 from oic.oauth2.grant import Token
-from urllib.parse import urlparse
 
 # [OIDC] Client class
 class OicClient:
@@ -200,11 +197,11 @@ class OicClient:
             raise PyoidcError("Error response in user info")
 
         return (
-            user_info_response["email"],
-            user_info_response["sub"],
-            token_response["id_token"],
-            token_response,
-        )
+                user_info_response[self.app.config.get('OIDC_USERNAME_CLAIM', 'email')],
+                user_info_response['sub'],
+                token_response["id_token"],
+                token_response
+            )
 
     def get_user_info(
         self, token: AccessTokenResponse
