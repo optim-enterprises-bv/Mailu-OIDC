@@ -91,6 +91,7 @@ properties are needed in `mailu.env`:
 | `OIDC_CHANGE_PASSWORD_REDIRECT_URL`     | Defaults to provider issuer url appended by `/.well-known/change-password`.                                         | [https://`host`/pw-change]() |
 | `OIDC_USERNAME_CLAIM`                   | 	The OIDC claim used as the username. If the selected claim contains an email address, it will be used as is. If it is not an email (e.g., `sub`), the email address will be constructed as `<OIDC_USERNAME_CLAIM>@<OIDC_USER_DOMAIN>`. Defaults to `email`. | `email` \| `sub`
 | `OIDC_USER_DOMAIN`                      | The domain used when constructing an email from a non-email username (e.g., when `OIDC_USERNAME_CLAIM=sub`). Ignored if `OIDC_USERNAME_CLAIM` is already an email. Defaults to the value of `DOMAIN`. | `example.com`
+| `OIDC_ENABLE_USER_CREATION`             | If enabled, users who authenticate successfully but do not yet have an account will have one created for them. If disabled, only existing users can log in, and authentication will fail for users without a pre-existing account. Defaults to `True`. | `True` \| `False` |
 
 Here is a snippet for easy copy paste:
 
@@ -103,8 +104,6 @@ Here is a snippet for easy copy paste:
 OIDC_ENABLED=True
 # OpenID Connect provider configuration URL
 OIDC_PROVIDER_INFO_URL=https://<host>:<port>/auth/realms/.well-known/openid-configuration
-# OpenID redirect URL if HOSTNAME not matching your login url
-OIDC_REDIRECT_URL=https://mail.example.com
 # OpenID Connect Client ID for Mailu
 OIDC_CLIENT_ID=<CLIENT_ID>
 # OpenID Connect Client secret for Mailu

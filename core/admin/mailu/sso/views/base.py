@@ -54,10 +54,14 @@ def login():
                 return render_oidc_template(form, fields)
             
             if '@' not in username:
-                username = username + '@' + app.config.get('OIDC_USER_DOMAIN', app.config['DOMAIN'])
+                username = username + '@' + (app.config['OIDC_USER_DOMAIN'] or app.config['DOMAIN'])
 
             user = models.User.get(username)
             if user is None:
+                if not app.config['OIDC_ENABLE_USER_CREATION']:
+                    flask.flash('User %s does not exist' % username, 'error')
+                    return render_oidc_template(form, fields)
+
                 user = models.User.create(username)
 
             flask.session.regenerate()
