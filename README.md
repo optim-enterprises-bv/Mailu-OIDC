@@ -104,8 +104,6 @@ Here is a snippet for easy copy paste:
 OIDC_ENABLED=True
 # OpenID Connect provider configuration URL
 OIDC_PROVIDER_INFO_URL=https://<host>:<port>/auth/realms/.well-known/openid-configuration
-# OpenID redirect URL if HOSTNAME not matching your login url
-OIDC_REDIRECT_URL=https://mail.example.com
 # OpenID Connect Client ID for Mailu
 OIDC_CLIENT_ID=<CLIENT_ID>
 # OpenID Connect Client secret for Mailu
