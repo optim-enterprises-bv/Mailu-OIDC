@@ -95,9 +95,7 @@ class OicClient:
 
         redirect_uri = flask.request.host_url + "sso/login"
 
-        if self.app.config["OIDC_REDIRECT_URL"]:
-            redirect_uri = self.app.config["OIDC_REDIRECT_URL"]
-        elif flask.request.host not in self.allowed_hostnames:
+        if flask.request.host not in self.allowed_hostnames:
             return None
 
         args = {
